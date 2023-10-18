@@ -8,14 +8,15 @@ const shinobu = async (): Promise<Blob> => {
   //   return cache["shinobu"].blob;
   // }
 
-  const url = (
-    (await (await fetch(`https://api.waifu.pics/sfw/shinobu`)).json()) as {
-      url: string;
-    }
-  ).url;
-
-  const response = await fetch(url);
-  const blob = await response.blob();
+  const blob = await (
+    await fetch(
+      (
+        (await (await fetch(`https://api.waifu.pics/sfw/shinobu`)).json()) as {
+          url: string;
+        }
+      ).url
+    )
+  ).blob();
 
   // cache["shinobu"] = {
   //   blob,
