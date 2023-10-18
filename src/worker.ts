@@ -36,7 +36,7 @@ router
   .get("/shinobu", async (_request) => {
     let response = new Response(await shinobu());
 
-    response.headers.set("Cache-Control", "public, max-age=5, s-maxage=5");
+    response.headers.set("Cache-Control", "public, max-age=1, s-maxage=1");
 
     return response;
   })
